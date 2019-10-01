@@ -6,10 +6,15 @@
 </head>
 <body>
     <form action="#"
-          th:action="@{/tvform}"
+    <!--Here you indicate where these entries will be sent; the /tvform corresponds more specifically with the postMapping-->
+    <!--... where the @Valid and the Binding Result will check for errors -->
+
+    th:action="@{/tvform}"
           th:object="${tvshow}"
           method="post">
         Id :<input type="number" th:field="*{id}" />
+    <!--  th:if gets the return values from Binding Result  -->
+    <!--  th:errors build the default error message for the field   -->
         <span th:if="${#fields.hasErrors('id')}"
               th:errors="*{id}"></span><br/>
         Name :<input type="text" th:field="*{name}" />

@@ -16,6 +16,8 @@ public class HomeController {
     }
 
     @PostMapping("/tvform")
+    //Here, you don't see @ModelAttribute to pass what was previously done in the @GetMappping,
+    // because @Valid is doing that for you this time, along with BidingResult.
     public String processTvForm(@Valid Tvshow tvshow,
                                 BindingResult result){
         if (result.hasErrors()) {
